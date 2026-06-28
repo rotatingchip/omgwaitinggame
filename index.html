@@ -54,6 +54,8 @@
 <h2 id="percent">0%</h2>
 <p id="message">Initializinng...</p>
 
+<button oneclick="start()">start Waiting experience</button>
+
 
 <script>
 let percent = 3; // trust me bro this is accurate (i removed your message hedgehog)
@@ -75,6 +77,20 @@ let messages = [ // these are in no order btw they are random
     "the servers have crashed",
     "the servers are back online finally"
 ];
+
+
+// for the button ig
+
+function start() {
+    document.querySelector("h1").innerText = "preparing..";
+    document.getElementById("message").innerText = "making the waiting engine go brrrr"
+}
+
+
+
+
+
+
 
 // idk what this does rotating chip wrote this stuff below here
 setInterval(() => {
