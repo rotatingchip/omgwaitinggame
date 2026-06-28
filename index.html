@@ -79,6 +79,65 @@ let messages = [ // these are in no order btw they are random
 ];
 
 
+let state = "idle";
+
+function setState(newState) {
+    state = newState;
+
+    if (state === "Starting") {
+        setMessage("starting the stupdity sequence");
+    }
+
+    if (state === "loading") {
+        setMessage("starting to load ig");
+    }
+
+    if (state === "almost_there") {
+        setMessage("finalizing waiting time");
+    }
+
+    if (state === "Finished") {
+        setMessage("Completed!");
+    }
+}
+
+
+
+
+
+
+
+
+
+// empty space
+
+// for now
+
+// rickroll inset here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // for the button ig
 
 function start() {
