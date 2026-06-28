@@ -56,7 +56,7 @@
 
 
 <script>
-let percent = 3; // trust me bro this is accurate (this message is from Hedgehog, dip your head in lava Crimxin)
+let percent = 3; // trust me bro this is accurate (i removed your message hedgehog)
 
 
 let messages = [ // these are in no order btw they are random
@@ -76,7 +76,7 @@ let messages = [ // these are in no order btw they are random
     "the servers are back online finally"
 ];
 
-
+// idk what this does rotating chip wrote this stuff below here
 setInterval(() => {
     if (percent < 99) {
         percent += Math.random() * 0.2;
@@ -94,8 +94,22 @@ setInterval(() => {
         messages[Math.floor(Math.random() * messages.length)]
 
 }, 2000);
+
+
+if (percent >= 99) {
+    docuemnt.querySelector("h1").innerHTML =
+    "100%";
+
+    document.getElementById("message").innerHTML =
+    "we never actually made an ending"
+
+    setTimeout(() => {
+        document.getElementById("message").innerHTML =
+        "we never will add one";
+    }, 3000);
+}
 </script>
 
 
 </body>
-</html>    
+</html>
