@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>please wait</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        .loader {
+            width: 300px;
+            height: 25px;
+            background: #333;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: lime;
+        }
+
+        @keyframes load {
+            from { width: 0%; }
+            to { width: 99.00%; }
+        }
+
+        
+        #message {
+            color: gray;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<h1>preparing your experience...</h1>
+
+
+<div class="loader">
+    <div class="progress"></div>
+</div>
+
+
+<h2 id="percent">0%</h2>
+<p id="message">Initializinng...</p>
+
+
+<script>
+let percent = 3; // trust me bro this is accurate
+
+
+let messages = [
+    "Downloading da ram",
+    "teaching our systems how to write stuff and more stuff",
+    "waiting for our garbage servers to respond",
+    "waiting our internet",
+    "waiting on our hamster to finish eating",
+    "checking hamster power supply",
+    "waiting on the hamster to power up",
+    "almost there",
+    "still almost there",
+    "actually almost there this time",
+    "Error: developer forgot how arrays work"
+];
+
+
+setInterval(() => {
+    if (percent < 99) {
+        percent += Math.random() * 0.2;
+
+    }
+
+
+    document.getElementById("percent").innerHTML =
+        Math.floor(percent) + "%";
+
+    document.querySelector(".progress").style.width = percent + "%";
+
+
+    document.getElementById("message").innerHTML = 
+        messages[Math.floor(Math.random() * messages.length)]
+
+}, 2000);
+</script>
+
+
+</body>
+</html>    
