@@ -109,24 +109,22 @@ function setState(newState) {
 
 
 
-// empty space
+function completeExperience() {
+    
+    setTimeout(() => {
 
-// for now
-
-// rickroll inset here
-
-
-
-
+        setMessage(
+            "actually we forgot something"
+        );
 
 
+        percent = 0
+        updatePercent(percent);
+        
+        setState("loading");
 
-
-
-
-
-
-
+    }, 5000);
+}
 
 
 
@@ -138,12 +136,31 @@ function setState(newState) {
 
 
 
-// for the button ig
+
+
+
+
+
 
 function start() {
-    document.querySelector("h1").innerText = "preparing..";
-    document.getElementById("message").innerText = "making the waiting engine go brrrr"
+    setState("starting");
+
+
+    setTimeout(() => {
+        setState("loading");
+    }, 2000);
 }
+
+
+
+
+
+// old version of the system
+
+// function start() {
+ //   document.querySelector("h1").innerText = "preparing..";
+  //  document.getElementById("message").innerText = "making the waiting engine go brrrr"
+// }
 
 
 
@@ -153,35 +170,46 @@ function start() {
 
 // idk what this does rotating chip wrote this stuff below here
 setInterval(() => {
-    if (percent < 99) {
-        percent += Math.random() * 0.2;
+    if (state === "loading") {
+        percemt += Math.random() * 0.2;
 
+        updatePercent(percent);
+
+        if (percent >= 90) {
+            setState("almost_there");
+        }
     }
 
 
-    document.getElementById("percent").innerHTML =
-        Math.floor(percent) + "%";
+    if (state === "almost_there") {
+        percent +=  Math.random() * 0.05;
 
-    document.querySelector(".progress").style.width = percent + "%";
+        updatePercent(percent);
 
-
-    document.getElementById("message").innerHTML = 
-        messages[Math.floor(Math.random() * messages.length)]
-
+        if (percent >= 99.9) {
+            setstate("Finished")
+        }
+    }
 }, 2000);
 
 
-if (percent >= 99) {
-    docuemnt.querySelector("h1").innerHTML =
-    "100%";
+// old ending didnt work anyways
+// if (percent >= 99) {
+//    docuemnt.querySelector("h1").innerHTML =
+//    "100%";
+//
+//    document.getElementById("message").innerHTML =
+//    "we never actually made an ending"
+//
+//    setTimeout(() => {
+//        document.getElementById("message").innerHTML =
+//        "we never will add one";
+//    }, 3000);
+// }
 
-    document.getElementById("message").innerHTML =
-    "we never actually made an ending"
 
-    setTimeout(() => {
-        document.getElementById("message").innerHTML =
-        "we never will add one";
-    }, 3000);
+if (state === "Finished") {
+    completeExperience();
 }
 </script>
 
