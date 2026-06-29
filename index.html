@@ -81,6 +81,52 @@ let messages = [ // these are in no order btw they are random
 
 let state = "idle";
 
+
+
+
+
+function setMessage(text) {
+    document.getElementById("message").innerText = text;
+}
+
+function updatePercent(value) {
+    percent = value;
+    document.getElementById("percent").innerText =
+        Math.floor(percent) + "%";
+
+    document.querySelector(".progress").style.width =
+        percent + "%";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function setState(newState) {
     state = newState;
 
@@ -143,7 +189,7 @@ function completeExperience() {
 
 
 function start() {
-    setState("starting");
+    setState("Starting");
 
 
     setTimeout(() => {
@@ -171,7 +217,7 @@ function start() {
 // idk what this does rotating chip wrote this stuff below here
 setInterval(() => {
     if (state === "loading") {
-        percemt += Math.random() * 0.2;
+        percent += Math.random() * 0.2;
 
         updatePercent(percent);
 
@@ -187,7 +233,7 @@ setInterval(() => {
         updatePercent(percent);
 
         if (percent >= 99.9) {
-            setstate("Finished")
+            setState("Finished");
         }
     }
 }, 2000);
@@ -206,11 +252,6 @@ setInterval(() => {
 //        "we never will add one";
 //    }, 3000);
 // }
-
-
-if (state === "Finished") {
-    completeExperience();
-}
 </script>
 
 
